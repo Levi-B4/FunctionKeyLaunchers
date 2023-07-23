@@ -1,59 +1,87 @@
-F13::
+
+F13::                   ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    CreateGUI()         ;script that runs when hotkey is pressed
 }
 
-F14::
+F14::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F15::
+F15::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F16::
+F16::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F17::
+F17::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F18::
+F18::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F19::
+F19::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F20::
+F20::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F21::
+F21::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F22::
+F22::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F23::
+F23::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
 }
 
-F24::
+F24::                                                       ;key pressed to activate hotkey
 {
-    MsgBox A_ThisHotkey " has not yet been given a function", "Key has no function!", (0, 48)
+    UnimplimentedHotkeyNotification(A_ThisHotkey)           ;script that runs when hotkey is pressed
+}
+
+;Methods
+;creates notification window to notify the user of key which hasnt been implimented
+UnimplimentedHotkeyNotification(key)
+{
+    MsgBox(key " has not yet been given a function", "Key has no function!", (0, 48))       ;creates a message box ui with given text
+}
+
+;creates GUI which the user can use to open programs
+CreateGUI(*)
+{
+    myGui := Gui()
+    ;creates hypertext
+    textWithLink := myGui.Add("Text", "", "Click here to launch default IDE.")
+    textWithLink.SetFont("underline cBlue")
+    textWithLink.OnEvent("Click", LaunchDefaultIDE )
+
+    ;Alternatively, a Link control can be used:
+    myGui.Add("Codelink",, 'Click <a href="www.google.com">here</a> to launch Google.')
+    myGui.Show()
+}
+
+;launches the program saved as "code" in environment variables
+;may also put a path to a program instead
+LaunchDefaultIDE(*) {
+    Run("code")
 }
